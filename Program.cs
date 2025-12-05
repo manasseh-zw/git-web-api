@@ -32,4 +32,13 @@ app.MapGet(
     )
     .WithName("date");
 
+app.MapGet(
+        "random",
+        () =>
+        {
+            return Results.Ok(new Random().Next(1000, 9999));
+        }
+    )
+    .WithName("random");
+
 app.Run();
