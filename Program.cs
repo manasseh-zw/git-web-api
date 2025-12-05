@@ -14,10 +14,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("hello", () =>
-{
-    return Results.Ok(new {message="Hello!"});
-})
-.WithName("hello");
+app.MapGet(
+        "hello",
+        () =>
+        {
+            return Results.Ok(new { message = "Hello!" });
+        }
+    )
+    .WithName("hello");
+
+app.MapGet(
+        "date-now",
+        () =>
+        {
+            return Results.Ok(DateTime.UtcNow);
+        }
+    )
+    .WithName("date");
 
 app.Run();
